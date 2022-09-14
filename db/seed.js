@@ -1,4 +1,4 @@
-const { client, getAllUsers, createUser } = require('./index');
+const { client, createUser, getAllUsers } = require('./index');
 
 const dropTables = async() => {
   try {
@@ -46,7 +46,6 @@ const createInitialUsers = async() => {
     console.log(albert);
     console.log(sandra);
     console.log(glamgal);
-    // console.log(albertTwo);
 
     console.log("Finished creating users!");
   } catch (error) {
@@ -71,10 +70,10 @@ const testDB = async() => {
   try {
     console.log("Starting to test database...");
 
-      const users = await getAllUsers();
-      console.log("getAllUsers:", users);
+    const users = await getAllUsers();
+    console.log("getAllUsers:", users);
 
-      console.log("Finished database tests!");
+    console.log("Finished database tests!");
   } catch (error) {
     console.error(error);
     throw error;
