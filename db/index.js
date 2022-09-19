@@ -74,6 +74,20 @@ const getUserById = async(userId) => {
     }
 }
 
+const getUserByUsername = async(username) => {
+    try {
+        const { rows: [user] } = await client.query(`
+        SELECT *
+        FROM users
+        WHERE username=$1;
+        `, [username]);
+
+        return user;
+    } catch (error) {
+      throw error;
+    }
+}
+
 const createPost = async({ authorId, title, content, tags = [] }) => {
     try {
         const { rows: [ post ] } = await client.query(`
@@ -294,6 +308,7 @@ const getPostsByTagName = async(tagName) => {
     updateUser,
     getAllUsers,
     getUserById,
+    getUserByUsername,
     createPost,
     updatePost,
     getAllPosts,
