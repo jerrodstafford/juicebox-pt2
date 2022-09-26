@@ -74,7 +74,7 @@ usersRouter.post('/login', async(req, res, next) => {
   }
 });
 
-usersRouter.use('/', async(req, res) => {
+usersRouter.get('/', async(req, res) => {
   const users = await getAllUsers();
   
   res.send({
