@@ -42,7 +42,7 @@ usersRouter.post('/register', async (req, res, next) => {
   } 
 });
 
-usersRouter.use('/login', async(req, res, next) => {
+usersRouter.post('/login', async(req, res, next) => {
   const { username, password } = req.body;
   
   if(!username || !password) {
